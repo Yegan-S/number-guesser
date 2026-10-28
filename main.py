@@ -18,6 +18,12 @@ while True:
         print("You're out of range, enter a digit between 1 and 100")
         continue
 
-    print(user_guess)
+    if rand_num > user_guess:
+        print("Your guess is too low.Please try again.")
+    elif rand_num < user_guess:
+        print("Your guess is too high.Please try again.")
+    else:
+        print("Congratulations! You guessed the correct number.") 
+        break       
 
 
