@@ -1,6 +1,5 @@
 import random
 
-rand_num = random.randint(1, 100)
 
 def validate_input(user_guess):
     if not user_guess.isdigit():
@@ -13,33 +12,39 @@ def validate_input(user_guess):
         return False
 
     return True
-    
 
 
-score = 100
+def main():
+    rand_num = random.randint(1, 100)
 
-while True:
-    user_guess = input("guess a number between 1 and 100")
-    if user_guess == "q":
-        print("Thank you, Goodbye")
-        break
+    score = 100
 
-    if not validate_input(user_guess):
-        continue 
+    while True:
+        user_guess = input("guess a number between 1 and 100")
+        if user_guess == "q":
+            print("Thank you, Goodbye")
+            break
 
-    user_guess = int(user_guess)    
-    
+        if not validate_input(user_guess):
+            continue 
 
-    if rand_num > user_guess:
-        print("Your guess is too low.Please try again.")
-    elif rand_num < user_guess:
-        print("Your guess is too high.Please try again.")
-    else:
-        print("Congratulations! You guessed the correct number.")
-        print(f"Your score is: {score}") 
-        break  
+        user_guess = int(user_guess)    
+        
 
-    score -= 10
-    score = max(score, 0)         
+        if rand_num > user_guess:
+            print("Your guess is too low.Please try again.")
+        elif rand_num < user_guess:
+            print("Your guess is too high.Please try again.")
+        else:
+            print("Congratulations! You guessed the correct number.")
+            print(f"Your score is: {score}") 
+            break  
+
+        score -= 10
+        score = max(score, 0)  
+
+
+if __name__ == '__main__':
+    main()       
 
 
