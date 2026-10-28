@@ -3,6 +3,7 @@ import random
 rand_num = random.randint(1, 100)
 
 
+score = 100
 
 while True:
     user_guess = input("guess a number between 1 and 100")
@@ -23,7 +24,11 @@ while True:
     elif rand_num < user_guess:
         print("Your guess is too high.Please try again.")
     else:
-        print("Congratulations! You guessed the correct number.") 
-        break       
+        print("Congratulations! You guessed the correct number.")
+        print(f"Your score is: {score}") 
+        break  
+
+    score -= 10
+    score = max(score, 0)         
 
 
